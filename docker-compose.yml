@@ -6,7 +6,7 @@ services:
     image: mysql:8.0
     container_name: banking-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: Pragyan4044@#1
+      MYSQL_ROOT_PASSWORD: //enter your pw here
       MYSQL_DATABASE: auth_db
     ports:
       - "3307:3306"
