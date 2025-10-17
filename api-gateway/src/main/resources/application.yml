@@ -1,0 +1,79 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+
+      routes:
+        # Authentication Service
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/auth/**, /api/test/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+
+        # Transaction Service
+        - id: transaction-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/accounts/**, /api/transactions/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+
+        # Credit Card Service
+        - id: credit-card-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/credit-cards/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+
+        # Gift Card Service
+        - id: gift-card-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/gift-cards/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+
+        # Loan Service
+        - id: loan-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/loans/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+
+        # Locker Service
+        - id: locker-service
+          uri: http://localhost:8086
+          predicates:
+            - Path=/api/lockers/**
+          filters:
+            - RewritePath=/api/(?<segment>.*), /api/$\{segment}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

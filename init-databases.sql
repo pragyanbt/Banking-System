@@ -1,0 +1,8 @@
+-- Create databases for all services
+CREATE DATABASE IF NOT EXISTS auth_db;
+CREATE DATABASE IF NOT EXISTS transaction_db;
+CREATE DATABASE IF NOT EXISTS creditcard_db;
+CREATE DATABASE IF NOT EXISTS giftcard_db;
+CREATE DATABASE IF NOT EXISTS loan_db;
+CREATE DATABASE IF NOT EXISTS locker_db;
+

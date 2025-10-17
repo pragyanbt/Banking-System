@@ -1,0 +1,214 @@
+# This file contains Kubernetes deployments for all remaining microservices
+# Credit Card, Gift Card, Loan, and Locker services
+
+---
+# Credit Card Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: credit-card-service
+  namespace: banking-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: credit-card-service
+  template:
+    metadata:
+      labels:
+        app: credit-card-service
+    spec:
+      containers:
+        - name: credit-card-service
+          image: banking/credit-card-service:latest
+          ports:
+            - containerPort: 8083
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql:3306/creditcard_db?createDatabaseIfNotExist=true&useSSL=false"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: credit-card-service
+  namespace: banking-prod
+spec:
+  selector:
+    app: credit-card-service
+  ports:
+    - port: 8083
+      targetPort: 8083
+  type: ClusterIP
+
+---
+# Gift Card Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gift-card-service
+  namespace: banking-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gift-card-service
+  template:
+    metadata:
+      labels:
+        app: gift-card-service
+    spec:
+      containers:
+        - name: gift-card-service
+          image: banking/gift-card-service:latest
+          ports:
+            - containerPort: 8084
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql:3306/giftcard_db?createDatabaseIfNotExist=true&useSSL=false"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gift-card-service
+  namespace: banking-prod
+spec:
+  selector:
+    app: gift-card-service
+  ports:
+    - port: 8084
+      targetPort: 8084
+  type: ClusterIP
+
+---
+# Loan Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: loan-service
+  namespace: banking-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: loan-service
+  template:
+    metadata:
+      labels:
+        app: loan-service
+    spec:
+      containers:
+        - name: loan-service
+          image: banking/loan-service:latest
+          ports:
+            - containerPort: 8085
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql:3306/loan_db?createDatabaseIfNotExist=true&useSSL=false"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: loan-service
+  namespace: banking-prod
+spec:
+  selector:
+    app: loan-service
+  ports:
+    - port: 8085
+      targetPort: 8085
+  type: ClusterIP
+
+---
+# Locker Service
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locker-service
+  namespace: banking-prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: locker-service
+  template:
+    metadata:
+      labels:
+        app: locker-service
+    spec:
+      containers:
+        - name: locker-service
+          image: banking/locker-service:latest
+          ports:
+            - containerPort: 8086
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:mysql://mysql:3306/locker_db?createDatabaseIfNotExist=true&useSSL=false"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "root"
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: locker-service
+  namespace: banking-prod
+spec:
+  selector:
+    app: locker-service
+  ports:
+    - port: 8086
+      targetPort: 8086
+  type: ClusterIP

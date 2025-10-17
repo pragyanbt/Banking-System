@@ -1,0 +1,347 @@
+/* Modern Dashboard Styles */
+
+/* Dashboard Stats Grid */
+.boa-dashboard-grid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.boa-dashboard-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Stat Cards */
+.boa-stat-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid var(--boa-gray-200);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.boa-stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--boa-red) 0%, var(--boa-blue) 100%);
+}
+
+.boa-stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: var(--boa-red);
+}
+
+.boa-stat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.boa-stat-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(227, 24, 55, 0.1) 0%, rgba(1, 33, 105, 0.1) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 2px 8px rgba(227, 24, 55, 0.1);
+}
+
+.boa-stat-value {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--boa-gray-900);
+  margin: 8px 0;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.boa-stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--boa-gray-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+/* Account Cards */
+.boa-account-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid var(--boa-gray-200);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.boa-account-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--boa-red) 0%, var(--boa-dark-red) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.boa-account-card:hover::before {
+  transform: scaleX(1);
+}
+
+.boa-account-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--boa-red);
+}
+
+.boa-account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.boa-account-type h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--boa-gray-800);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.boa-status-active,
+.boa-status-inactive {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.boa-status-active {
+  background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+  color: #065f46;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
+}
+
+.boa-status-inactive {
+  background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+  color: #991b1b;
+  box-shadow: 0 2px 4px rgba(239, 68, 68, 0.2);
+}
+
+.boa-account-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, rgba(227, 24, 55, 0.1) 0%, rgba(1, 33, 105, 0.1) 100%);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.boa-account-details {
+  margin-bottom: 20px;
+}
+
+.boa-account-number {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--boa-gray-500);
+  margin: 0 0 12px 0;
+  letter-spacing: 2px;
+  font-family: 'Courier New', monospace;
+}
+
+.boa-account-balance {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--boa-gray-900);
+  margin: 0;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.boa-account-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.boa-account-actions .boa-button {
+  flex: 1;
+  min-width: 120px;
+  font-size: 13px;
+  padding: 10px 16px;
+}
+
+/* Empty State */
+.boa-empty-state {
+  text-align: center;
+  padding: 80px 32px;
+  background: linear-gradient(135deg, rgba(243, 244, 246, 0.5) 0%, rgba(229, 231, 235, 0.5) 100%);
+  border-radius: 16px;
+  border: 2px dashed var(--boa-gray-300);
+}
+
+.boa-empty-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  font-size: 36px;
+  color: var(--boa-gray-400);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.boa-empty-state h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--boa-gray-900);
+  margin: 0 0 12px 0;
+}
+
+.boa-empty-state p {
+  color: var(--boa-gray-600);
+  font-size: 16px;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+}
+
+.boa-empty-state .boa-button {
+  min-width: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .boa-stat-value {
+    font-size: 28px;
+  }
+  
+  .boa-account-balance {
+    font-size: 26px;
+  }
+  
+  .boa-stat-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  
+  .boa-account-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  
+  .boa-empty-state {
+    padding: 60px 24px;
+  }
+  
+  .boa-empty-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .boa-stat-card {
+    padding: 20px;
+  }
+  
+  .boa-account-card {
+    padding: 20px;
+  }
+  
+  .boa-account-actions {
+    flex-direction: column;
+  }
+  
+  .boa-account-actions .boa-button {
+    width: 100%;
+  }
+}
+
+/* Animations */
+.boa-stat-card {
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.boa-stat-card:nth-child(1) { animation-delay: 0.1s; }
+.boa-stat-card:nth-child(2) { animation-delay: 0.2s; }
+.boa-stat-card:nth-child(3) { animation-delay: 0.3s; }
+.boa-stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+.boa-slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .boa-stat-card,
+  .boa-account-card,
+  .boa-slide-in-left {
+    animation: none;
+  }
+  
+  .boa-stat-card:hover,
+  .boa-account-card:hover {
+    transform: none;
+  }
+}

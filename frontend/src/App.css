@@ -1,0 +1,1049 @@
+/* Bank of America App Layout */
+.App {
+  text-align: left;
+  min-height: 100vh;
+  background: var(--boa-gray-100);
+}
+
+/* Bank of America Header */
+.boa-app-header {
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-dark-red) 100%);
+  border-bottom: 3px solid var(--boa-blue);
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.boa-header-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 8px 24px 8px;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.boa-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.boa-logo img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+.boa-logo-text {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--boa-white);
+  margin: 0;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.boa-main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.boa-nav-item {
+  color: var(--boa-gray-700);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 8px 0;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.boa-nav-item:hover {
+  color: var(--boa-red);
+  border-bottom-color: var(--boa-red);
+  text-decoration: none;
+}
+
+.boa-nav-item.active {
+  color: var(--boa-red);
+  border-bottom-color: var(--boa-red);
+  font-weight: 600;
+}
+
+.boa-nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--boa-red);
+}
+
+.boa-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.boa-search-btn {
+  background: none;
+  border: none;
+  color: var(--boa-gray-600);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.boa-search-btn:hover {
+  background: var(--boa-gray-100);
+  color: var(--boa-red);
+}
+
+.boa-user-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.boa-user-menu:hover {
+  background: var(--boa-gray-100);
+}
+
+.boa-user-avatar {
+  width: 32px;
+  height: 32px;
+  background: var(--boa-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--boa-red);
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--boa-blue);
+}
+
+.boa-user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--boa-white);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Bank of America Main Layout */
+.boa-main-layout {
+  display: flex;
+  min-height: calc(100vh - 56px);
+}
+
+.boa-sidebar {
+  background: var(--boa-white);
+  border-right: 1px solid var(--boa-gray-200);
+  box-shadow: var(--shadow-sm);
+  width: 260px;
+  position: fixed;
+  left: 0;
+  top: 56px;
+  bottom: 0;
+  z-index: 90;
+  overflow-y: auto;
+}
+
+.boa-sidebar-header {
+  background: var(--boa-red);
+  color: var(--boa-white);
+  padding: 20px;
+  text-align: center;
+}
+
+.boa-sidebar-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.boa-sidebar-nav {
+  padding: 20px 0;
+}
+
+.boa-nav-section {
+  margin-bottom: 24px;
+}
+
+.boa-nav-section-title {
+  padding: 8px 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--boa-gray-500);
+  margin-bottom: 8px;
+}
+
+.boa-sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: var(--boa-gray-600);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.boa-sidebar-nav-item:hover {
+  background: var(--boa-gray-100);
+  color: var(--boa-red);
+  border-left-color: var(--boa-red);
+  text-decoration: none;
+}
+
+.boa-sidebar-nav-item.active {
+  background: rgba(227, 24, 55, 0.1);
+  color: var(--boa-red);
+  border-left-color: var(--boa-red);
+  font-weight: 600;
+}
+
+.boa-sidebar-nav-item.active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 20px;
+  background: var(--boa-red);
+}
+
+.boa-nav-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.boa-nav-text {
+  flex: 1;
+  font-size: 14px;
+}
+
+.boa-nav-badge {
+  background: var(--boa-red);
+  color: var(--boa-white);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  min-width: 18px;
+  text-align: center;
+}
+
+.boa-sidebar-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  border-top: 1px solid var(--boa-gray-200);
+  background: var(--boa-white);
+}
+
+.boa-logout-btn {
+  width: 100%;
+  background: var(--boa-gray-100);
+  color: var(--boa-gray-700);
+  border: 1px solid var(--boa-gray-300);
+  border-radius: 4px;
+  padding: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.boa-logout-btn:hover {
+  background: var(--boa-gray-200);
+  color: var(--boa-gray-800);
+  border-color: var(--boa-gray-400);
+}
+
+/* Bank of America Main Content */
+.boa-main-content {
+  margin-left: 280px;
+  flex: 1;
+  background: linear-gradient(180deg, #f9fafb 0%, #f3f4f6 100%);
+  min-height: calc(100vh - 56px);
+  transition: margin-left 0.3s ease;
+}
+
+.boa-content-wrapper {
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.boa-page-header {
+  margin-bottom: 32px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--boa-gray-200);
+  position: relative;
+  overflow: hidden;
+}
+
+.boa-page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--boa-red) 0%, var(--boa-blue) 100%);
+}
+
+.boa-page-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--boa-gray-900);
+  margin: 0 0 8px 0;
+}
+
+.boa-page-subtitle {
+  color: var(--boa-gray-600);
+  font-size: 16px;
+  margin: 0;
+}
+
+.boa-page-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Bank of America Dashboard Grid */
+.boa-dashboard-grid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.boa-dashboard-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.boa-dashboard-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.boa-dashboard-grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Bank of America Cards */
+.boa-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+  border: 1px solid var(--boa-gray-200);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.boa-card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  border-color: var(--boa-red);
+}
+
+.boa-card-header {
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-dark-red) 100%);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--boa-red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--boa-white);
+}
+
+.boa-card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--boa-white);
+}
+
+.boa-card-header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.boa-card-header select,
+.boa-card-header input {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--boa-gray-900);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.boa-card-header select:focus,
+.boa-card-header input:focus {
+  background: var(--boa-white);
+  border-color: var(--boa-blue);
+}
+
+.boa-card-body {
+  padding: 20px;
+}
+
+.boa-card-footer {
+  padding: 16px 20px;
+  background: var(--boa-gray-50);
+  border-top: 1px solid var(--boa-gray-200);
+}
+
+/* Bank of America Buttons */
+.boa-button {
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-dark-red) 100%);
+  color: var(--boa-white);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(227, 24, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.boa-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.boa-button:hover::before {
+  left: 100%;
+}
+
+.boa-button:hover {
+  background: linear-gradient(135deg, var(--boa-dark-red) 0%, var(--boa-red) 100%);
+  color: var(--boa-white);
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(227, 24, 55, 0.3);
+}
+
+.boa-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(227, 24, 55, 0.2);
+}
+
+.boa-button-secondary {
+  background: var(--boa-white);
+  color: var(--boa-red);
+  border: 2px solid var(--boa-red);
+}
+
+.boa-button-secondary:hover {
+  background: var(--boa-red);
+  color: var(--boa-white);
+  border-color: var(--boa-red);
+}
+
+.boa-button-outline {
+  background: transparent;
+  color: var(--boa-gray-700);
+  border: 1px solid var(--boa-gray-300);
+}
+
+.boa-button-outline:hover {
+  background: var(--boa-gray-100);
+  color: var(--boa-gray-800);
+  border-color: var(--boa-gray-400);
+}
+
+.boa-button-large {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+.boa-button-small {
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.boa-button-icon {
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+}
+
+/* Bank of America Forms */
+.boa-form {
+  background: var(--boa-white);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+.boa-form-group {
+  margin-bottom: 20px;
+}
+
+.boa-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.boa-label {
+  display: block;
+  font-weight: 600;
+  color: var(--boa-gray-700);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.boa-input {
+  border: 1px solid var(--boa-gray-300);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: var(--boa-white);
+  color: var(--boa-gray-800);
+  width: 100%;
+  font-family: inherit;
+}
+
+.boa-input:focus {
+  outline: none;
+  border-color: var(--boa-red);
+  box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+}
+
+.boa-input::placeholder {
+  color: var(--boa-gray-500);
+}
+
+.boa-input-error {
+  border-color: var(--error-red);
+}
+
+.boa-input-error:focus {
+  border-color: var(--error-red);
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.boa-error-message {
+  color: var(--error-red);
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.boa-success-message {
+  color: var(--success-green);
+  font-size: 12px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.boa-form-help {
+  color: var(--boa-gray-500);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Bank of America Tables */
+.boa-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--boa-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.boa-table th {
+  background: var(--boa-gray-100);
+  color: var(--boa-gray-700);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--boa-gray-200);
+}
+
+.boa-table td {
+  padding: 16px;
+  border-bottom: 1px solid var(--boa-gray-200);
+  font-size: 14px;
+  color: var(--boa-gray-800);
+}
+
+.boa-table tbody tr:hover {
+  background: var(--boa-gray-50);
+}
+
+.boa-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Bank of America Responsive */
+@media (max-width: 1024px) {
+  .boa-main-content {
+    margin-left: 0;
+  }
+  
+  .boa-dashboard-grid-2,
+  .boa-dashboard-grid-3,
+  .boa-dashboard-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .boa-content-wrapper {
+    padding: 24px;
+  }
+  
+  .boa-main-nav {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .boa-content-wrapper {
+    padding: 20px;
+  }
+  
+  .boa-page-title {
+    font-size: 24px;
+  }
+
+  .boa-page-header {
+    padding: 24px 20px;
+  }
+  
+  .boa-header-main {
+    padding: 0 16px;
+  }
+  
+  .boa-form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .boa-page-actions {
+    flex-direction: column;
+  }
+  
+  .boa-page-actions .boa-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .boa-content-wrapper {
+    padding: 16px;
+  }
+
+  .boa-page-header {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .boa-card {
+    border-radius: 12px;
+  }
+
+  .boa-button {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+/* Bank of America Animations */
+.boa-fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.boa-slide-in-left {
+  animation: slideInLeft 0.4s ease-out;
+}
+
+.boa-slide-in-right {
+  animation: slideInRight 0.4s ease-out;
+}
+
+/* Bank of America Loading States */
+.boa-loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--boa-gray-200);
+  border-radius: 50%;
+  border-top-color: var(--boa-red);
+  animation: spin 1s linear infinite;
+}
+
+.boa-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.boa-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--boa-gray-200);
+  border-radius: 50%;
+  border-top-color: var(--boa-red);
+  animation: spin 1s linear infinite;
+}
+
+/* Bank of America Empty States */
+.boa-empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--boa-gray-100);
+  border-radius: 8px;
+  border: 2px dashed var(--boa-gray-300);
+}
+
+.boa-empty-icon {
+  width: 64px;
+  height: 64px;
+  background: var(--boa-gray-200);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px auto;
+  font-size: 24px;
+  color: var(--boa-gray-500);
+}
+
+.boa-empty-state h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--boa-gray-900);
+  margin: 0 0 12px 0;
+}
+
+.boa-empty-state p {
+  color: var(--boa-gray-600);
+  font-size: 14px;
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+/* Bank of America Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .boa-fade-in,
+  .boa-slide-in-left,
+  .boa-slide-in-right {
+    animation: none;
+  }
+  
+  .boa-card:hover,
+  .boa-button:hover {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .boa-card {
+    border: 2px solid var(--boa-gray-800);
+  }
+  
+  .boa-button {
+    border: 2px solid var(--boa-red);
+  }
+}
+
+/* Bank of America Print Styles */
+@media print {
+  .boa-sidebar,
+  .boa-app-header,
+  .boa-page-actions {
+    display: none;
+  }
+  
+  .boa-main-content {
+    margin-left: 0;
+  }
+  
+  .boa-card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}
+
+/* Badge Styles */
+.boa-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.boa-badge-success {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  color: white;
+}
+
+.boa-badge-warning {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+}
+
+.boa-badge-info {
+  background: linear-gradient(135deg, var(--boa-blue) 0%, #0056b3 100%);
+  color: white;
+}
+
+.boa-badge-danger {
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-dark-red) 100%);
+  color: white;
+}
+
+/* Enhanced Table Container */
+.boa-table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button disabled state */
+.boa-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+/* Modal Styles */
+.boa-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.boa-modal {
+  background: var(--boa-white);
+  border-radius: 12px;
+  box-shadow: var(--shadow-xl);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.boa-modal-header {
+  padding: 24px 24px 20px;
+  border-bottom: 1px solid var(--boa-gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, rgba(227, 24, 55, 0.05) 0%, rgba(0, 59, 125, 0.05) 100%);
+}
+
+.boa-modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--boa-text);
+}
+
+.boa-modal-close {
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--boa-gray-600);
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.boa-modal-close:hover {
+  background: var(--boa-gray-200);
+  color: var(--boa-text);
+  transform: rotate(90deg);
+}
+
+.boa-modal-body {
+  padding: 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Form Section Styles */
+.boa-form-section {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--boa-gray-200);
+}
+
+.boa-form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.boa-form-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--boa-text);
+  margin: 0 0 20px;
+  padding-left: 12px;
+  border-left: 3px solid var(--boa-red);
+}
+
+.boa-form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.boa-form-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Tabs */
+.boa-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid var(--boa-gray-200);
+  padding: 0 16px;
+}
+
+.boa-tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: var(--boa-gray-600);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: -2px;
+}
+
+.boa-tab:hover {
+  color: var(--boa-text);
+  background: var(--boa-gray-50);
+}
+
+.boa-tab.active {
+  color: var(--boa-red);
+  border-bottom-color: var(--boa-red);
+}
+
+/* Button Variants */
+.boa-button-small {
+  padding: 6px 16px;
+  font-size: 13px;
+  border-radius: 6px;
+}
+
+.boa-button-success {
+  background: var(--boa-success);
+  border-color: var(--boa-success);
+}
+
+.boa-button-success:hover {
+  background: #228B22;
+  border-color: #228B22;
+}
+
+.boa-button-danger {
+  background: var(--boa-danger);
+  border-color: var(--boa-danger);
+}
+
+.boa-button-danger:hover {
+  background: #C41E3A;
+  border-color: #C41E3A;
+}

@@ -1,0 +1,440 @@
+/* Bank of America Authentication Styles */
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--boa-gray-100) 0%, var(--boa-light-blue) 100%);
+  padding: 20px;
+}
+
+.auth-card {
+  background: var(--boa-white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xl);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+}
+
+.auth-header {
+  background: var(--boa-red);
+  color: var(--boa-white);
+  padding: 32px;
+  text-align: center;
+}
+
+.auth-header-compact {
+  background: linear-gradient(135deg, var(--boa-red) 0%, var(--boa-dark-red) 100%);
+  color: var(--boa-white);
+  padding: 24px;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-header-compact::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.auth-bank-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.auth-page-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.boa-logo {
+  margin-bottom: 24px;
+}
+
+.boa-logo-text {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--boa-white);
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.auth-welcome {
+  margin-top: 16px;
+}
+
+.auth-welcome h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: var(--boa-white);
+}
+
+.auth-welcome p {
+  font-size: 16px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.auth-card-body {
+  padding: 32px;
+}
+
+.auth-form {
+  margin-bottom: 24px;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 16px;
+}
+
+.auth-link {
+  color: var(--boa-red);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  color: var(--boa-dark-red);
+  text-decoration: underline;
+}
+
+.auth-footer {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--boa-gray-200);
+}
+
+.auth-footer p {
+  margin: 0 0 16px 0;
+  color: var(--boa-gray-600);
+  font-size: 14px;
+}
+
+.auth-security {
+  background: var(--boa-gray-50);
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px solid var(--boa-gray-200);
+}
+
+.auth-security p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--boa-gray-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Bank of America Form Enhancements */
+.boa-form-group {
+  margin-bottom: 20px;
+}
+
+.boa-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.boa-label {
+  display: block;
+  font-weight: 600;
+  color: var(--boa-gray-700);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.boa-label input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.boa-input {
+  border: 1px solid var(--boa-gray-300);
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: var(--boa-white);
+  color: var(--boa-gray-800);
+  width: 100%;
+  font-family: inherit;
+}
+
+.boa-input:focus {
+  outline: none;
+  border-color: var(--boa-red);
+  box-shadow: 0 0 0 3px rgba(227, 24, 55, 0.1);
+}
+
+.boa-input::placeholder {
+  color: var(--boa-gray-500);
+}
+
+/* Bank of America Button Styles */
+.boa-button {
+  background: var(--boa-red);
+  color: var(--boa-white);
+  border: none;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  font-family: inherit;
+  width: 100%;
+}
+
+.boa-button:hover {
+  background: var(--boa-dark-red);
+  color: var(--boa-white);
+  text-decoration: none;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.boa-button:active {
+  transform: translateY(0);
+}
+
+.boa-button:disabled {
+  background: var(--boa-gray-400);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.boa-button-large {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* Bank of America Loading */
+.boa-loading {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--boa-white);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Bank of America Alerts */
+.boa-alert {
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.boa-alert-success {
+  background: rgba(40, 167, 69, 0.1);
+  color: var(--success-green);
+  border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.boa-alert-error {
+  background: rgba(220, 53, 69, 0.1);
+  color: var(--error-red);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.boa-alert-warning {
+  background: rgba(255, 193, 7, 0.1);
+  color: var(--warning-orange);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.boa-alert-info {
+  background: rgba(23, 162, 184, 0.1);
+  color: var(--info-blue);
+  border: 1px solid rgba(23, 162, 184, 0.2);
+}
+
+/* Bank of America Card Styles */
+.boa-card {
+  background: var(--boa-white);
+  border: 1px solid var(--boa-gray-200);
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.boa-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.boa-card-header {
+  background: var(--boa-red);
+  color: var(--boa-white);
+  padding: 24px;
+  text-align: center;
+}
+
+.boa-card-body {
+  padding: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .auth-container {
+    padding: 16px;
+  }
+  
+  .auth-card {
+    max-width: 100%;
+  }
+  
+  .auth-header {
+    padding: 24px;
+  }
+  
+  .auth-card-body {
+    padding: 24px;
+  }
+  
+  .boa-form-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  
+  .auth-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .auth-links a {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-header {
+    padding: 20px;
+  }
+  
+  .auth-card-body {
+    padding: 20px;
+  }
+  
+  .boa-logo-text {
+    font-size: 24px;
+  }
+  
+  .auth-welcome h2 {
+    font-size: 20px;
+  }
+  
+  .auth-welcome p {
+    font-size: 14px;
+  }
+}
+
+/* Bank of America Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .boa-button:hover,
+  .boa-card:hover {
+    transform: none;
+  }
+  
+  .boa-loading {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .auth-card {
+    border: 2px solid var(--boa-gray-800);
+  }
+  
+  .boa-button {
+    border: 2px solid var(--boa-red);
+  }
+  
+  .boa-input {
+    border: 2px solid var(--boa-gray-800);
+  }
+}
+
+/* Bank of America Focus States */
+.boa-button:focus,
+.boa-input:focus,
+.auth-link:focus {
+  outline: 2px solid var(--boa-red);
+  outline-offset: 2px;
+}
+
+/* Bank of America Print Styles */
+@media print {
+  .auth-container {
+    background: white;
+  }
+  
+  .auth-card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+  
+  .auth-header {
+    background: white;
+    color: black;
+  }
+  
+  .auth-welcome h2,
+  .auth-welcome p {
+    color: black;
+  }
+}

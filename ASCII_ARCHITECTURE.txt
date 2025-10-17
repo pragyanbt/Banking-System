@@ -1,0 +1,233 @@
+🏦 PRAGYAN BANK OF USA - SYSTEM ARCHITECTURE
+================================================
+
+┌─────────────────────────────────────────────────────────────────┐
+│                        EXTERNAL USERS                          │
+├─────────────────────────────────────────────────────────────────┤
+│  👤 Customer    👨‍💼 Admin    👩‍💼 Employee                    │
+└─────────────────┬───────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    FRONTEND LAYER                              │
+├─────────────────────────────────────────────────────────────────┤
+│  🌐 React Frontend (Port: 3000)                               │
+│  ├─ User Portal                                                │
+│  ├─ Admin Portal                                               │
+│  └─ Responsive Design                                          │
+└─────────────────┬───────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   API GATEWAY LAYER                            │
+├─────────────────────────────────────────────────────────────────┤
+│  🚪 API Gateway (Port: 8080)                                  │
+│  ├─ Request Routing                                            │
+│  ├─ Load Balancing                                             │
+│  ├─ CORS Handling                                              │
+│  └─ Authentication                                             │
+└─────────────────┬───────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  MICROSERVICES LAYER                           │
+├─────────────────────────────────────────────────────────────────┤
+│  🔐 Auth Service (8081)        💰 Transaction Service (8082)   │
+│  ├─ User Authentication        ├─ Account Management           │
+│  ├─ JWT Token Management       ├─ Transaction Processing       │
+│  └─ Role-Based Access Control  └─ Balance Management           │
+│                                                                 │
+│  💳 Credit Card Service (8083)  📊 Loan Service (8085)         │
+│  ├─ Credit Card Applications   ├─ Loan Applications            │
+│  ├─ Credit Scoring             ├─ Credit Assessment            │
+│  └─ Card Issuance              └─ Loan Disbursement            │
+│                                                                 │
+│  🎁 Gift Card Service (8084)    🔒 Locker Service (8086)       │
+│  ├─ Gift Card Creation         ├─ Locker Rental                │
+│  ├─ Gift Card Redemption       ├─ Access Management            │
+│  └─ Balance Tracking           └─ Rental Tracking              │
+└─────────────────┬───────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    DATABASE LAYER                              │
+├─────────────────────────────────────────────────────────────────┤
+│  🗄️ Auth DB        🗄️ Transaction DB    🗄️ Credit Card DB     │
+│  ├─ Users          ├─ Accounts          ├─ Applications         │
+│  ├─ Roles          ├─ Transactions      ├─ Credit Cards         │
+│  └─ Sessions       └─ Account Apps      └─ Credit Scores        │
+│                                                                 │
+│  🗄️ Loan DB         🗄️ Gift Card DB     🗄️ Locker DB          │
+│  ├─ Loan Apps      ├─ Gift Cards        ├─ Lockers              │
+│  ├─ Loans          ├─ Redemptions       ├─ Rentals              │
+│  └─ Payments       └─ Balances          └─ Access Logs          │
+└─────────────────┬───────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   EXTERNAL SYSTEMS                             │
+├─────────────────────────────────────────────────────────────────┤
+│  🐬 MySQL Server (Port: 3307)                                 │
+│  ├─ Database Engine                                            │
+│  └─ Data Persistence                                           │
+└─────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════
+
+🔄 DATA FLOW EXAMPLES:
+
+1. AUTHENTICATION FLOW:
+   User → Frontend → API Gateway → Auth Service → Auth Database
+   Auth Service → JWT Token → API Gateway → Frontend → User
+
+2. TRANSACTION FLOW:
+   User → Frontend → API Gateway → Transaction Service → Transaction DB
+   Transaction Service → Balance Update → Transaction DB → Success Response
+
+3. CREDIT CARD APPLICATION:
+   User → Frontend → API Gateway → Credit Card Service → Credit Card DB
+   Admin → Frontend → API Gateway → Credit Card Service → Review/Approve
+
+4. GIFT CARD REDEMPTION:
+   User → Frontend → API Gateway → Gift Card Service → Gift Card DB
+   Gift Card Service → Transaction Service → Account Balance Update
+
+═══════════════════════════════════════════════════════════════════
+
+🏗️ COMPONENT ARCHITECTURE:
+
+Frontend Components:
+├── Authentication (Login, Signup, AuthInitializer)
+├── User Components (Dashboard, Accounts, CreditCards, Loans, GiftCards, Lockers, Transactions)
+├── Admin Components (AdminDashboard, CreditCardReview, LoanReview, AccountReview)
+├── Shared Components (Sidebar, Navbar)
+├── State Management (Redux Store, AuthSlice, AccountSlice)
+└── Services (API Client with Axios)
+
+Backend Services:
+├── Auth Service (User management, JWT tokens, RBAC)
+├── Transaction Service (Accounts, Transactions, Applications)
+├── Credit Card Service (Applications, Credit scoring, Card issuance)
+├── Loan Service (Applications, Credit assessment, Disbursement)
+├── Gift Card Service (Creation, Redemption, Balance tracking)
+├── Locker Service (Rental, Access management, Tracking)
+└── API Gateway (Routing, Load balancing, CORS, Authentication)
+
+═══════════════════════════════════════════════════════════════════
+
+🔐 SECURITY ARCHITECTURE:
+
+Security Layers:
+├── Frontend Security
+│   ├── Token Storage (localStorage, JWT tokens)
+│   └── Route Guards (Role-based access, Authentication check)
+├── API Gateway Security
+│   ├── CORS Configuration (Cross-origin requests)
+│   ├── Rate Limiting (Request throttling)
+│   └── Authentication Check (JWT validation)
+├── Service Security
+│   ├── JWT Token Validation (Service-to-service)
+│   ├── Password Hashing (BCrypt encryption)
+│   └── Input Validation (Data sanitization)
+└── Database Security
+    ├── Data Encryption (Sensitive fields)
+    ├── Access Control (Service-specific DBs)
+    └── Backup Security (Encrypted backups)
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 DEPLOYMENT ARCHITECTURE:
+
+Docker Environment:
+├── Frontend Container (React App, Nginx Server, Port: 3000)
+├── Backend Containers (Spring Boot services, Ports: 8080-8086)
+├── Database Container (MySQL 8.0, Port: 3307, Multiple databases)
+└── Docker Compose (Service orchestration, Network config, Volume mounts, Health checks)
+
+Kubernetes Deployment:
+├── Ingress Layer (External access, SSL termination, Load balancing)
+├── Application Layer (Frontend Pod, Gateway Pod, Service Pods)
+├── Data Layer (MySQL Pod, Persistent storage)
+└── Configuration (ConfigMaps, Secrets, Environment variables)
+
+═══════════════════════════════════════════════════════════════════
+
+📊 SCALABILITY & PERFORMANCE:
+
+Scaling Strategy:
+├── Horizontal Scaling (Independent service scaling)
+├── Load Balancing (Multiple service instances)
+├── Database Scaling (Master-slave replication)
+├── Caching (Redis for sessions and caching)
+└── CDN (Content delivery network for static assets)
+
+Performance Features:
+├── Connection Pooling (Database connections)
+├── Async Processing (Non-blocking operations)
+├── Health Checks (Service monitoring)
+├── Metrics Collection (Performance monitoring)
+└── Logging (Centralized logging system)
+
+═══════════════════════════════════════════════════════════════════
+
+🛠️ TECHNOLOGY STACK:
+
+Backend:
+├── Java 17 (Programming language)
+├── Spring Boot 3.2.0 (Framework)
+├── Spring Security (Authentication & Authorization)
+├── Spring Data JPA (Data persistence)
+├── MySQL 8.0 (Database)
+├── Maven (Build tool)
+└── Lombok (Code generation)
+
+Frontend:
+├── React 18 (UI framework)
+├── Redux Toolkit (State management)
+├── React Router (Navigation)
+├── Axios (HTTP client)
+├── React Icons (Vector icons)
+└── CSS3 (Styling)
+
+DevOps:
+├── Docker (Containerization)
+├── Docker Compose (Orchestration)
+├── Kubernetes (Production deployment)
+└── Nginx (Web server)
+
+═══════════════════════════════════════════════════════════════════
+
+📋 KEY ARCHITECTURAL DECISIONS:
+
+1. Microservices Architecture
+   ├── Independent, scalable services
+   ├── Database per service pattern
+   └── Service-to-service communication via HTTP/REST
+
+2. API Gateway Pattern
+   ├── Single entry point for all requests
+   ├── Centralized authentication and authorization
+   └── Request routing and load balancing
+
+3. Database Design
+   ├── Separate databases for each service
+   ├── Proper normalization and relationships
+   └── ACID compliance for financial transactions
+
+4. Security Implementation
+   ├── JWT-based authentication
+   ├── Role-based access control
+   ├── Encrypted password storage
+   └── Input validation and sanitization
+
+5. Containerization
+   ├── Docker containers for all services
+   ├── Docker Compose for local development
+   └── Kubernetes manifests for production deployment
+
+6. Frontend Architecture
+   ├── React with Redux for state management
+   ├── Component-based architecture
+   └── Responsive design for all devices
+
+
